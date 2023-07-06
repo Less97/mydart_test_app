@@ -11,10 +11,11 @@ class MainMenu extends StatelessWidget {
        Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          OutlinedButton(
+          ElevatedButton(
             onPressed: () =>
             {
-                
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=> const MainMenu()))
             },
            child: const Text("How it works"))
         ]

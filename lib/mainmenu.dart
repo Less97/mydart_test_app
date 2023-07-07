@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'how_it_works.dart';
 
 class MainMenu extends StatelessWidget {
   const MainMenu({
@@ -15,7 +16,7 @@ class MainMenu extends StatelessWidget {
             onPressed: () =>
             {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=> const MainMenu()))
+                    MaterialPageRoute(builder: (context)=> const HowItWorks()))
             },
            child: const Text("How it works"))
         ]

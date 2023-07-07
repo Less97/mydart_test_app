@@ -59,7 +59,16 @@ import 'mainmenu.dart';
                     ))
                    }
                 }
-              })
+              },
+              ),
+              ElevatedButton(
+                child: const Text('Enter as Guest'), 
+                onPressed: () => {
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=> const MainMenu()
+                    ))
+                }
+              )
           ]
           .map((widget) => 
           Padding(

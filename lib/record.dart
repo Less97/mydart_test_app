@@ -17,37 +17,32 @@ class RecordState extends State<Record> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
+      body: Stack(
+        children: [
+          Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0), 
-              child:TextFormField(
-                  decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: 'Name your recording',
-                  ),
-                  validator: (value){
-                    if(value == ""){
-                      return "recording name cannot be empty";
-                    }
-                    recordingTitle = "";
-                    return null;
-                  },
-                ), )
-            ,
-                const SizedBox(height: 30),
           ElevatedButton.icon(onPressed: () => {
           }, 
-          icon: const Icon(Icons.mic, color: Colors.red,size: 30), 
-          label: const Text("Record your Audio")),
-          ElevatedButton.icon(
-            onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back_ios, color: Colors.blue, size: 30), 
-            label: const Text("Back"))                    
+          icon: const Icon(Icons.mic, color: Colors.red, size: 50), 
+          label: const Text("")),
       ]
-    ))
+    ),
+    Align(
+              alignment: Alignment.bottomLeft,
+              child: Container(
+               margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+               width: 150,
+               child: ElevatedButton(
+                  onPressed: () =>
+                  {
+                    Navigator.pop(context)
+                  }, 
+                  child: const Text("Back")), 
+                ),
+            )
+    ]
+    )
     );
   }
 }

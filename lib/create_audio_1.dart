@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import "record.dart";
 
-class MyRecordings extends StatefulWidget {
+class CreateAudio1 extends StatefulWidget {
 
-  const MyRecordings({super.key});
+  const CreateAudio1({super.key});
 
   @override
-  State<MyRecordings> createState(){
-    return MyRecordingsState();
+  State<CreateAudio1> createState(){
+    return CreateAudio1State();
   } 
 }
 
-class MyRecordingsState extends State<MyRecordings> {
+class CreateAudio1State extends State<CreateAudio1> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(children: [
-         ListView(
+       ListView(
           children: const [
             ListTile(
               leading: Icon(Icons.audio_file),
@@ -49,7 +48,7 @@ class MyRecordingsState extends State<MyRecordings> {
               child: const Text("Back")), 
             ),
         )
-            ]
+        ]
     ));
   }
 }

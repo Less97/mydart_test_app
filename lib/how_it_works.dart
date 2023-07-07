@@ -8,30 +8,49 @@ class HowItWorks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text("How it works",
-            textDirection: TextDirection.ltr,
-            style: TextStyle(
-              fontSize: 32,
-              color: Colors.black87,
+      body: Stack(
+        children: [
+          const Center(
+            child: 
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("How it works",
+                textDirection: TextDirection.ltr,
+                style: TextStyle(
+                  fontSize: 32,
+                  color: Colors.black87,
+                ),
+                ),
+                Text("My Description here",
+                textDirection: TextDirection.ltr,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black87,
+                ),
+                )
+              ]
+            )),
+         Align(
+          alignment: Alignment.bottomLeft,
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+            width: 150,
+            child: ElevatedButton(
+              onPressed: () =>
+              {
+                Navigator.pop(context)
+              }, 
+              child: const Text("Back")), 
             ),
-            ),
-            const Text("My Description here",
-            textDirection: TextDirection.ltr,
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.black87,
-            ),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text("Back"))
-          ]
-        ) 
-      )
+        )
+        ]
+
+
+      ),
+    
+
+
     );
   }
 }

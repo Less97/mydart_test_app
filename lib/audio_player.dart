@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Record extends StatefulWidget {
+class AudioPlayer extends StatefulWidget {
 
-  const Record({super.key});
+  const AudioPlayer({super.key});
 
   @override
-  State<Record> createState(){
-    return RecordState();
+  State<AudioPlayer> createState(){
+    return AudioPlayerState();
   } 
 }
 
-class RecordState extends State<Record> {
+class AudioPlayerState extends State<AudioPlayer> {
 
   var recordingTitle = "";
 
@@ -22,9 +22,10 @@ class RecordState extends State<Record> {
           Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-          ElevatedButton.icon(onPressed: () => {
-          }, 
-          icon: const Icon(Icons.mic, color: Colors.red, size: 50), 
+           Image.asset('assets/imgs/open-source.png'),
+           ElevatedButton.icon(onPressed: () => {
+           }, 
+          icon: const Icon(Icons.play_arrow, color: Colors.blue, size: 50), 
           label: const Text("")),
           
       ]

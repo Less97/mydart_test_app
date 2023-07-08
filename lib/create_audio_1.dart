@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import "audio_player.dart";
+import "models/audiodata.dart";
 
 class CreateAudio1 extends StatefulWidget {
 
@@ -10,30 +12,29 @@ class CreateAudio1 extends StatefulWidget {
   } 
 }
 
+
+
 class CreateAudio1State extends State<CreateAudio1> {
+
+final List<AudioData> intros = [
+    AudioData("", "Intro 1"),
+    AudioData("", "Intro 2"),
+    AudioData("", "Intro 3"),
+    ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(children: [
-       ListView(
-          children: const [
-            ListTile(
-              leading: Icon(Icons.audio_file),
-              title: Text('Car'),
-              trailing: Icon(Icons.play_arrow),
-            ),
-            ListTile(
-              leading: Icon(Icons.audio_file),
-              title: Text('Flight'),
-              trailing: Icon(Icons.play_arrow),
-            ),
-            ListTile(
-              leading: Icon(Icons.audio_file),
-              title: Text('Train'),
-              trailing: Icon(Icons.play_arrow),
-            )
-          ],
+      ListView(
+          children: intros.map((i) => ListTile(
+              leading: const Icon(Icons.audio_file),
+              title: Text(i.title),
+              trailing: const Icon(Icons.play_arrow),
+              onTap: (){
+                MaterialPageRoute(builder: (context) => const AudioPlayer());
+              },
+          )).toList(),
         ),
         Align(
           alignment: Alignment.bottomLeft,

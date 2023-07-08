@@ -29,7 +29,7 @@ class MyRecordingsState extends State<MyRecordings> {
               title: Text(r.title),
               trailing: const Icon(Icons.play_arrow),
               onTap: (){
-                MaterialPageRoute(builder: (context) => const AudioPlayer());
+               Navigator.push(context, MaterialPageRoute(builder: (context) => const AudioPlayer()));
               },
           )).toList(),
         ),

@@ -32,7 +32,7 @@ final List<AudioData> intros = [
               title: Text(i.title),
               trailing: const Icon(Icons.play_arrow),
               onTap: (){
-                MaterialPageRoute(builder: (context) => const AudioPlayer());
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AudioPlayer()));
               },
           )).toList(),
         ),

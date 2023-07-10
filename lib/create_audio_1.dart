@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import "audio_player.dart";
-import "models/audiodata.dart";
+import 'models/audiodata.dart';
+import 'dart:developer' as developer;
 
 class CreateAudio1 extends StatefulWidget {
 
@@ -12,27 +14,33 @@ class CreateAudio1 extends StatefulWidget {
   } 
 }
 
-
-
 class CreateAudio1State extends State<CreateAudio1> {
 
-final List<AudioData> intros = [
-    AudioData("", "Intro 1"),
-    AudioData("", "Intro 2"),
-    AudioData("", "Intro 3"),
-    ];
+   Future<List<AudioData>> buildAudioData() async{
+    String stringFromJson = await DefaultAssetBundle.of(context).loadString("assets/data.json");
+    developer.log("audio from json $stringFromJson");
+    return jsonDecode(stringFromJson) as List<AudioData>;
+   }
+
+  List<AudioData> audioData = [];
+
+  @override
+  void initState() {
+    super.initState();
+    buildAudioData().then((value) => setState(() {audioData = value;}));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(children: [
       ListView(
-          children: intros.map((i) => ListTile(
+          children: audioData.map((i) => ListTile(
               leading: const Icon(Icons.audio_file),
               title: Text(i.title),
               trailing: const Icon(Icons.play_arrow),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const AudioPlayer()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const CreateAudio1()));
               },
           )).toList(),
         ),

@@ -1,50 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 
-class AudioPlayer extends StatefulWidget {
+class AudioPlayerComponent extends StatefulWidget {
 
-  const AudioPlayer({super.key});
+  const AudioPlayerComponent({super.key});
 
   @override
-  State<AudioPlayer> createState(){
-    return AudioPlayerState();
+  State<AudioPlayerComponent> createState(){
+    return AudioPlayerComponentState();
   } 
 }
 
-class AudioPlayerState extends State<AudioPlayer> {
-
-  var recordingTitle = "";
+class AudioPlayerComponentState extends State<AudioPlayerComponent> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-           Image.asset('assets/imgs/open-source.png'),
-           ElevatedButton.icon(onPressed: () => {
-           }, 
-          icon: const Icon(Icons.play_arrow, color: Colors.blue, size: 50), 
-          label: const Text("")),
-          
-      ]
-    ),
-    Align(
-              alignment: Alignment.bottomLeft,
-              child: Container(
-               margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-               width: 150,
-               child: ElevatedButton(
-                  onPressed: () =>
-                  {
-                    Navigator.pop(context)
-                  }, 
-                  child: const Text("Back")), 
-                ),
-            )
-    ]
-    )
-    );
+
+    return const Scaffold(
+      body: Center(
+        child: Column(children: [
+        
+        
+        ]
+      )
+      );
   }
 }

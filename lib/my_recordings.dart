@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import "audio_player.dart";
 import "models/audiodata.dart";
 
 class MyRecordings extends StatefulWidget {
@@ -29,7 +28,7 @@ class MyRecordingsState extends State<MyRecordings> {
               title: Text(r.title),
               trailing: const Icon(Icons.play_arrow),
               onTap: (){
-               Navigator.push(context, MaterialPageRoute(builder: (context) => const AudioPlayer()));
+               Navigator.push(context, MaterialPageRoute(builder: (context) => const MyRecordings()));
               },
           )).toList(),
         ),
